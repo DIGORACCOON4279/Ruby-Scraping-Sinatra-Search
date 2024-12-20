@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Películas</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <section class="movies-section">
+    <h1>Películas</h1>
+    <form action="/" method="get">
+      <div class="fieldset">
+          <label class="label" for="search">Buscar categoría:</label>
+          <input class="input" type="search" id="search" name="buscador" value="<%= categoria %>" placeholder="Escribe aquí para buscar">
+      </div>
+
+      <button class="button" type="submit">Buscar</button>
+    </form>
+
+    <section class="movies-container">
+      <% if valid_movies.empty? %>
+        <p>No se encontraron películas completas para esta categoría.</p>
+      <% else %>
+        <% valid_movies.each do |movie| %>
+          <div class="movie-card">
+            <img src="<%= movie[:image] %>" alt="Imagen de la película">
+            <div class="details">
+              <h4><%= movie[:title] %></h4>
+              <p class="release_date">Fecha de lanzamiento: <span><%= movie[:release_date] %></span></p>
+              <p class="description"><strong>Descripción:</strong> <%= movie[:description] %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </section>
+  </section>
+
+</body>
+</html>
