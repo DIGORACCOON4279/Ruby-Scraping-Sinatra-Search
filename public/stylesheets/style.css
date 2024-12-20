@@ -52,12 +52,13 @@ body {
       .input{
         width: 300px;
         font-size:0.9rem;
-        font-weight: 500;
+        font-weight: 400;
         text-align: left;
         font-family: "Raleway", serif;
         padding:10px;
         border-radius: 5px;
-        border: 1px solid black;
+        color: rgb(77, 77, 77);
+        border: 1px solid #b3b3b3;
         &:hover{
           border: 1px solid #828fff
         }
